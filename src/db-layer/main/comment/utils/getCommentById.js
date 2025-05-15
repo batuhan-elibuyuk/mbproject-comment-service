@@ -17,7 +17,7 @@ const getCommentById = async (commentId) => {
       return null;
     }
     return Array.isArray(commentId)
-      ? comment.map((item) => item.getData())
+      ? (comment.map = (item) => item.getData())
       : comment.getData();
   } catch (err) {
     console.log(err);

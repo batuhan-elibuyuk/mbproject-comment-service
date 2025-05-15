@@ -13,7 +13,7 @@ const getCommentCountByQuery = async (query, stats) => {
       if (stat === "count") {
         promises.push(Comment.count({ where: query }));
         statLabels.push("count");
-      } else if (statParts.length == 2) {
+      } else if (startParts.length == 2) {
         if (statParts[0] === "sum") {
           promises.push(Comment.sum(statParts[1], { where: query }));
           statLabels.push("sum-" + statParts[1]);

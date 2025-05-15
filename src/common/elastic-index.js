@@ -375,10 +375,8 @@ class ElasticIndexer {
       for await (const key of redisClient.scanIterator({
         MATCH: "elasticCache:" + this.indexName + ":*",
       })) {
-        if (!key) continue;
-        if (Array.isArray(key) && !key.length) continue;
         await redisClient.del(key);
-        result = result + Array.isArray(key) ? key.length : 1;
+        result++;
       }
       if (result) {
         console.log(
