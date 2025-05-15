@@ -134,17 +134,17 @@ const addLoginRoutes = () => {
     const keyId = req.query.keyId ?? global.currentKeyId;
     const keyPath = path.join(
       __dirname,
-      "../",
-      keyFolderName,
-      "rsa.key.pub." + keyId,
+      "../../" + keyFolderName + "/rsa.key.pub." + keyId,
     );
+    console.log("loking for public key:", keyPath);
+
     const keyData = fs.existsSync(keyPath)
       ? fs.readFileSync(keyPath, "utf8")
       : null;
     if (!keyData) {
       return res.status(404).send("Public key not found");
     }
-    res.status(200).json({ keyId: global.currentKeyId, keyData });
+    res.status(200).json({ keyId: keyId, keyData });
   });
 };
 
