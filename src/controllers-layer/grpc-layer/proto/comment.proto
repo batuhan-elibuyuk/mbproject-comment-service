@@ -1,0 +1,45 @@
+
+syntax = "proto3";
+
+package comment;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message comment {
+    string id = 1;
+    string postId = 2;
+    optional string parentCommentId = 3;
+    string authorUserId = 4;
+    string content = 5;
+    google.protobuf.Timestamp createdAt = 6;
+    optional google.protobuf.Timestamp editedAt = 7;
+    optional bool isEdited = 8;
+    bool isActive = 9;
+    optional int32 upvoteCount = 10;
+    optional int32 replyCount = 11;
+}
+
+
+
+
+
+
+message VoidRequest {}
+    
+message CurrentUserReply {
+    string userId = 1;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service commentService {
+
+
+
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}
