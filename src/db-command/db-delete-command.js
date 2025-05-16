@@ -9,10 +9,6 @@ class DBDeleteCommand extends DbCommand {
     this.instanceMode = instanceMode;
   }
 
-  createDbInstance() {
-    return null;
-  }
-
   async buildDataClause(input) {
     // blank inherit
   }

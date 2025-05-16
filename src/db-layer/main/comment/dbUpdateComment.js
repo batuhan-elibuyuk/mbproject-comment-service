@@ -69,14 +69,6 @@ class DbUpdateCommentCommand extends DBUpdateSequelizeCommand {
     const input = this.input;
   }
 
-  async createDbInstance() {
-    this.dbInstance = await getCommentById(this.input.id);
-
-    if (!this.dbInstance) {
-      throw new NotFoundError("errMsg_RecordNotFoundToUpdate");
-    }
-  }
-
   buildIncludes(forWhereClause) {
     if (!this.input.getJoins) forWhereClause = true;
     const includes = [];

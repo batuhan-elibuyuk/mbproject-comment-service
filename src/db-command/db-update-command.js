@@ -19,10 +19,6 @@ class DBUpdateCommand extends DbCommand {
     this.affectedRows = [];
   }
 
-  createDbInstance() {
-    return null;
-  }
-
   async buildDataClause(input) {
     await super.buildDataClause(input);
     // remove null properties in update

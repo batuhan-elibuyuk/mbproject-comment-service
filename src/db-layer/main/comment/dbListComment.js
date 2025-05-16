@@ -27,7 +27,9 @@ class DbListCommentCommand extends DBGetListSequelizeCommand {
   }
 
   async transposeResult() {
-    // transpose dbData
+    for (const comment of this.dbData.items) {
+      // tarnspose dbData item
+    }
   }
 
   buildIncludes(forWhereClause) {

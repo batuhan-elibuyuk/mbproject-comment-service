@@ -24,7 +24,7 @@ class DbCommand {
     this.queryCacheInvalidator = null;
     this.initOwnership(input);
     this.location = 0;
-    this.loadHookFunctions();
+    this.loadHookFunctions({});
   }
 
   loadHookFunctions(hookConfig) {

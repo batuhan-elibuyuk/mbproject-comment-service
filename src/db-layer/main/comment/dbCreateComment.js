@@ -63,7 +63,6 @@ class DbCreateCommentCommand extends DBCreateSequelizeCommand {
     try {
       whereClause = {
         postId: this.dataClause.postId,
-
         parentCommentId: this.dataClause.parentCommentId,
       };
 
@@ -76,7 +75,6 @@ class DbCreateCommentCommand extends DBCreateSequelizeCommand {
       }
       whereClause = {
         authorUserId: this.dataClause.authorUserId,
-
         createdAt: this.dataClause.createdAt,
       };
 

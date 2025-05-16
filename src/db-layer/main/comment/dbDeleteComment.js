@@ -62,15 +62,6 @@ class DbDeleteCommentCommand extends DBSoftDeleteSequelizeCommand {
     // transpose dbData
   }
 
-  async createDbInstance() {
-    this.dbInstance = await getCommentById(this.input.id);
-
-    if (!this.dbInstance) {
-      throw new NotFoundError("errMsg_RecordNotFoundToDelete");
-    }
-    this.input.comment = this.dbInstance;
-  }
-
   async syncJoins() {
     const promises = [];
     const dataId = this.dbData.id;
